@@ -1,0 +1,87 @@
+<!-- Save this as index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MetaLearn AI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1633113212193-c09e430bc4a0?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #88f1f1;
+    }
+
+    .btn {
+      background-color: #3366ff;
+      padding: 12px 24px;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .upload-section, .video-section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #111927;
+    }
+
+    input[type="file"],
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+
+    video {
+      margin-top: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #00f0ff;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>🚀 Welcome to MetaLearn AI</h1>
+    <a href="#upload" class="btn">Let's Start</a>
+  </section>
+
+  <section id="upload" class="upload-section">
+    <h2>📄 Upload your Educational PDF</h2>
+    <p>Convert it into a powerful animated learning video with voice and visuals.</p>
+    <form action="/generate" method="POST" enctype="multipart/form-data">
+      <input type="file" name="pdf" accept=".pdf" required />
+      <button type="submit">Continue</button>
+    </form>
+  </section>
+{% if video_path %}
+  <div style="text-align: center; margin-top: 20px;">
+    <h2>Your AI-Generated Learning Video:</h2>
+    <video width="720" height="405" controls>
+      <source src="{{ video_path }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+{% endif %}
+ 
+</body>
+</html>

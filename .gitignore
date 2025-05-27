@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.db
+*.log
+debug_text.txt
+slides/
+uploads/
+static/output/
+final_video.mp4
